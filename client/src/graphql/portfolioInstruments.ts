@@ -1,6 +1,6 @@
 import {gql} from "apollo-boost";
 
-export const INSTRUMENTS = gql`
+export const GET_INSTRUMENTS = gql`
     query Instruments {
         instruments {
             id
