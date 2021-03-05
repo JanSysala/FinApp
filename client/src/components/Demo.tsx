@@ -6,7 +6,7 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
 import {Axis, Chart, Coordinate, Interval, Legend, Tooltip} from 'bizcharts';
 import {Typeahead} from 'react-bootstrap-typeahead';
-
+import "./Demo.scss"
 import {
     DeleteInstrument as DeleteInstrumentData,
     DeleteInstrumentVariables
@@ -18,7 +18,6 @@ import {getEtfSymbols} from "../actions/etfSymbolsAction";
 
 const AddInstrument = () => {
     const [addInstrument] = useMutation(ADD_INSTRUMENT);
-    // const [userInput, setUserInput] = useState({ticker: ''})
     const {state, dispatch} = useContext(Store);
     const [selected, setSelected] = useState([]);
 
@@ -31,10 +30,6 @@ const AddInstrument = () => {
     useEffect(() => {
         getEtfSymbols(dispatch)
     }, [dispatch]);
-
-    const updateField = (e: any) => {
-        setSelected(e.target.value);
-    };
 
     return (
         <>
@@ -78,6 +73,7 @@ const InstrumentsList = () => {
         instruments.map((instrument) => {
             return (
                 <ListGroup.Item
+                    className="hover"
                     onClick={() => getEtfIndustries(instrument.ticker, dispatch)}
                     key={instrument.id}>{instrument.ticker}
                     <Button onClick={() => handleDeleteInstrument(instrument.id)}>Delete</Button>

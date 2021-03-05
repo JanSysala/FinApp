@@ -1,6 +1,6 @@
 import * as React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import './Home.css'
+import './Home.scss'
 
 export const Home: React.FC = () => {
     return (
@@ -12,7 +12,7 @@ export const Home: React.FC = () => {
                         <p className="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your
                             marketing
                             efforts with this example based on Apple’s marketing pages.</p>
-                        <a className="btn btn-outline-secondary" href="#">Coming soon</a>
+                        <a className="btn btn-outline-secondary" href="/demo">Try Demo</a>
                     </div>
                 </div>
             </Jumbotron>
