@@ -4,7 +4,6 @@ import {Instruments as InstrumentsData} from "../graphql/__generated__/Instrumen
 import ListGroup from 'react-bootstrap/ListGroup'
 import InputGroup from 'react-bootstrap/InputGroup'
 import Button from 'react-bootstrap/Button'
-import FormControl from 'react-bootstrap/FormControl'
 import {Axis, Chart, Coordinate, Interval, Legend, Tooltip} from 'bizcharts';
 import {Typeahead} from 'react-bootstrap-typeahead';
 
@@ -19,25 +18,22 @@ import {getEtfSymbols} from "../actions/etfSymbolsAction";
 
 const AddInstrument = () => {
     const [addInstrument] = useMutation(ADD_INSTRUMENT);
-    const [userInput, setUserInput] = useState({ticker: ''})
+    // const [userInput, setUserInput] = useState({ticker: ''})
     const {state, dispatch} = useContext(Store);
     const [selected, setSelected] = useState([]);
 
     const handleSubmit = useCallback(async () => {
-        console.log(selected)
         await addInstrument({
-            variables: {ticker: selected}
+            variables: {ticker: selected.toString()}
         })
-    }, [addInstrument, userInput.ticker]);
+    }, [addInstrument, selected]);
 
     useEffect(() => {
         getEtfSymbols(dispatch)
     }, [dispatch]);
 
     const updateField = (e: any) => {
-        setUserInput({
-            ticker: e.target.value
-        });
+        setSelected(e.target.value);
     };
 
     return (
@@ -46,19 +42,15 @@ const AddInstrument = () => {
                 <InputGroup className="mb-3">
                     <Typeahead
                         id="basic-example"
-                        onChange={setSelected}
+                        onChange={(selected) => {
+                            setSelected(selected)
+                        }}
                         options={state.etfSymbols.map((symbol: any) => symbol.symbol)}
                         placeholder="ETF symbol"
                         selected={selected}
                     />
-                    {/*<FormControl*/}
-                    {/*    placeholder="Recipient's username"*/}
-                    {/*    aria-label="Recipient's username"*/}
-                    {/*    defaultValue={userInput.ticker}*/}
-                    {/*    onChange={updateField}*/}
-                    {/*/>*/}
                     <InputGroup.Append>
-                        <Button type="submit" variant="outline-secondary">Button</Button>
+                        <Button type="submit" variant="outline-secondary">Add</Button>
                     </InputGroup.Append>
                 </InputGroup>
             </form>
