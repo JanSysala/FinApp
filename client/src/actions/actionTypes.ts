@@ -1,13 +1,15 @@
-import {SectorExposure} from "../reducers/etfIndustriesReducer";
+import {EtfSectorExposure} from "../models/etfSectorExposure";
 
 export const SET_ETFINDUSTRIES = "SET_ETFINDUSTRIES";
 
 export interface SetEtfIndustriesAction {
     type: typeof SET_ETFINDUSTRIES;
-    sectorExposure: SectorExposure[];
+    sectorExposure: EtfSectorExposure[];
 }
 
 export const GET_ETFINDUSTRIES = "GET_ETFINDUSTRIES";
+
+export const GET_ETFSYMBOLS = "GET_ETFSYMBOLS";
 
 export interface GetEtfIndustriesAction {
     type: typeof GET_ETFINDUSTRIES;
@@ -18,7 +20,7 @@ export const GET_ETFINDUSTRIES_SUCCESS = "GET_ETFINDUSTRIES_SUCCESS";
 
 export interface GetEtfIndustriesSuccessAction {
     type: typeof GET_ETFINDUSTRIES_SUCCESS;
-    sectorExposure: SectorExposure[];
+    sectorExposure: EtfSectorExposure[];
 }
 
 export const GET_ETFINDUSTRIES_FAILURE = "GET_ETFINDUSTRIES_FAILURE";
