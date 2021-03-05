@@ -4,7 +4,7 @@ import {GET_ETFINDUSTRIES, GET_ETFSYMBOLS} from "../actions/actionTypes";
 
 export interface EtfsState {
     sectorExposure: EtfSectorExposure[],
-    etfSymbols: any
+    etfSymbols: string[]
 }
 
 interface IAction {

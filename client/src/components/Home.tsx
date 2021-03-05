@@ -10,8 +10,7 @@ export const Home: React.FC = () => {
                     <div className="layer col-md-5 mx-auto my-5">
                         <h1 className="display-4 font-weight-normal">Punny headline</h1>
                         <p className="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your
-                            marketing
-                            efforts with this example based on Apple’s marketing pages.</p>
+                            marketing efforts with this example based on Apple’s marketing pages.</p>
                         <a className="btn btn-outline-secondary" href="/demo">Try Demo</a>
                     </div>
                 </div>
