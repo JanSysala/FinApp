@@ -20,7 +20,6 @@ DB_USER=YOUR_VALUE
 DB_USER_PASSWORD=YOUR_VALUE
 DB_CLUSTER=YOUR_VALUE
 PUBLIC_URL=YOUR_VALUE
-
 ```
 3. Install dependencies `yarn install`
 4. Run `yarn start`
