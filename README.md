@@ -8,6 +8,7 @@ Simple React app to check ETFs industry exposures.
 - React - Typescript
 - GraphQL
 - React-Bootstrap
+- Redux ([deprecated branch](https://github.com/JanSysala/FinApp/tree/Redux_version))
 
 ## How to run App:
 

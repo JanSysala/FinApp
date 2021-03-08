@@ -1,14 +1,15 @@
 import React from 'react'
 import {EtfSectorExposure} from "../models/etfSectorExposure";
 import {GET_ETFINDUSTRIES, GET_ETFSYMBOLS} from "../actions/actionTypes";
+import {EtfSymbols} from "../models/etfSymbols";
 
 export interface EtfsState {
     sectorExposure: EtfSectorExposure[],
-    etfSymbols: string[]
+    etfSymbols: EtfSymbols[]
 }
 
 interface IAction {
-    type: string,
+    type: typeof GET_ETFINDUSTRIES | typeof GET_ETFSYMBOLS,
     payload: any
 }
 

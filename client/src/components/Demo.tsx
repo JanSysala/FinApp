@@ -15,6 +15,7 @@ import {ADD_INSTRUMENT, DELETE_INSTRUMENT, GET_INSTRUMENTS} from "../graphql/por
 import {getEtfIndustries} from "../actions/etfIndustriesAction";
 import {Store} from "../contexts/Store";
 import {getEtfSymbols} from "../actions/etfSymbolsAction";
+import {EtfSymbols} from "../models/etfSymbols";
 
 const AddInstrument = () => {
     const [addInstrument] = useMutation(ADD_INSTRUMENT);
@@ -40,7 +41,7 @@ const AddInstrument = () => {
                         onChange={(selected) => {
                             setSelected(selected)
                         }}
-                        options={state.etfSymbols.map((symbol: any) => symbol.symbol)}
+                        options={state.etfSymbols.map((symbols: EtfSymbols['symbols']) => symbols.symbol)}
                         placeholder="ETF symbol"
                         selected={selected}
                     />
@@ -64,7 +65,7 @@ const InstrumentsList = () => {
 
     const instruments = data ? data.instruments : null;
 
-    const handleDeleteInstrument = useCallback(async (id: string) => {
+    const handleDeleteInstrument = useCallback(async (id: DeleteInstrumentVariables['id']) => {
         await deleteInstrument({variables: {id}})
         await refetch();
     }, [deleteInstrument, refetch]);

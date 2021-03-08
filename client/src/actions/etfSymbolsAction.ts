@@ -1,10 +1,11 @@
 import axios from 'axios'
-import {GET_ETFSYMBOLS, getEtfSymbolsResponse} from "./actionTypes";
+import {GET_ETFSYMBOLS} from "./actionTypes";
 import React from "react";
+import {GetEtfSymbolsResponse} from "../models/etfSymbols";
 
 type Action = {
     type: typeof GET_ETFSYMBOLS,
-    payload: getEtfSymbolsResponse
+    payload: GetEtfSymbolsResponse
 }
 
 export const getEtfSymbols = async (dispatch: React.Dispatch<Action>) => {
